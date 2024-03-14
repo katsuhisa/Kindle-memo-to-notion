@@ -19,7 +19,9 @@ Kindleでハイライトした箇所を箇条書きで抽出し、Notionに移�
    1.1 ページの任意の場所を右クリック
    1.2 検証をクリック
    <img width="540" alt="スクリーンショット 2024-03-14 23 05 39" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/73e425de-83ca-43fd-836f-33b3cd6751e4">
-3. ブラウザの開発者ツールの"Consle"を開きます。
+   
+2. ブラウザの開発者ツールの"Console"を開きます。
+
     <img width="540" alt="スクリーンショット 2024-03-14 23 06 14" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/37b25a2c-547b-4f20-b7f2-262403924f99">
 
     - Firefox: [ウェブコンソール - 開発ツール | MDN](https://developer.mozilla.org/ja/docs/Tools/Web_Console)
