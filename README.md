@@ -17,39 +17,47 @@ Kindleでハイライトした箇所を箇条書きで抽出し、Notionに移�
 
 1. Kindleの[メモとハイライト](https://read.amazon.co.jp/notebook)ページを開きます。
    1.1 ページの任意の場所を右クリック
+   <img width="540" alt="スクリーンショット 2024-03-14 23 33 12" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/9bc1b7f2-874c-4283-b8c3-f820664d0a26">
    1.2 検証をクリック
-   <img width="540" alt="スクリーンショット 2024-03-14 23 05 39" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/73e425de-83ca-43fd-836f-33b3cd6751e4">
+   <img width="540" alt="スクリーンショット 2024-03-14 23 33 31" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/c27b9c1b-d672-466e-b505-62746776a391">
    
 2. ブラウザの開発者ツールの"Console"を開きます。
 
-    <img width="540" alt="スクリーンショット 2024-03-14 23 06 14" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/37b25a2c-547b-4f20-b7f2-262403924f99">
-
     - Firefox: [ウェブコンソール - 開発ツール | MDN](https://developer.mozilla.org/ja/docs/Tools/Web_Console)
     - Chrome: [Console overview - Chrome Developers](https://developer.chrome.com/docs/devtools/console/)
+   
+   <img width="540" alt="スクリーンショット 2024-03-14 23 34 07" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/ebcee2a8-43ed-46a8-828d-e9ca95a92089">
+
 4. 次のコードをConsoleに貼り付けて実行します：
+   4.1 下記コードを実行
+   ```javascript
+   const { parsePage, toMarkdown } = await import('https://cdn.skypack.dev/kindle-highlight-to-markdown');
+   const result = parsePage(window); // JSONオブジェクト
+   const markdown = toMarkdown(result); // Markdown形式の文字列
+   
+   // Markdownからページ番号を含む行を削除し、箇条書きに変換
+   const lines = markdown.split('\n');
+   const bulletListMarkdown = lines.reduce((acc, line) => {
+     if (line.startsWith('> Location:')) {
+       return acc;
+     }
+     if (line.trim() === '>') {
+       acc.push('');
+     } else {
+       const item = line.replace(/^> /, '- ');
+       acc.push(item);
+     }
+     return acc;
+   }, []).join('\n');
+   ```
+   4.2 下記コードを実行
+   ```javascript
+   copy(bulletListMarkdown);
+   ```
+5. Notionで所定のページで貼り付け
+   <img width="540" alt="スクリーンショット 2024-03-14 23 36 15" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/c4688ca4-fafd-4db3-b0ac-922711b778b4">
 
-```javascript
-const { parsePage, toMarkdown } = await import('https://cdn.skypack.dev/kindle-highlight-to-markdown');
-const result = parsePage(window); // JSONオブジェクト
-const markdown = toMarkdown(result); // Markdown形式の文字列
 
-// Markdownからページ番号を含む行を削除し、箇条書きに変換
-const lines = markdown.split('\n');
-const bulletListMarkdown = lines.reduce((acc, line) => {
-  if (line.startsWith('> Location:')) {
-    return acc;
-  }
-  if (line.trim() === '>') {
-    acc.push('');
-  } else {
-    const item = line.replace(/^> /, '- ');
-    acc.push(item);
-  }
-  return acc;
-}, []).join('\n');
-
-copy(bulletListMarkdown);
-```
 ## 参照元
 このプロジェクトは、azuによるkindle-highlight-to-markdownを基にしています。特定の改良を加えることで、ユーザーにより使いやすい形で情報を提供できるようにしています。
 
