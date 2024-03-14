@@ -3,7 +3,8 @@ Kindleでハイライトした箇所を箇条書きで抽出し、Notionに移�
 
 # Kindle Highlights to Markdown with Enhancements
 
-このプロジェクトは、[azuのkindle-highlight-to-markdown](https://github.com/azu/kindle-highlight-to-markdown)ライブラリに基づいて、KindleのハイライトとメモをMarkdownまたはJSON形式に変換するための改良版です。オリジナルのライブラリではページ番号も取得されますが、この改良版ではページ番号を取得せず、Markdown形式での箇条書き表示に特化しています。
+[azuのkindle-highlight-to-markdown](https://github.com/azu/kindle-highlight-to-markdown)に基づき、KindleのハイライトとメモをMarkdownまたはJSON形式に変換するための改良版です。
+オリジナルのライブラリではページ番号も取得されますが、この改良版ではページ番号を取得せず、Markdown形式での箇条書き表示に特化しています。
 
 ## 改良点
 
@@ -14,11 +15,16 @@ Kindleでハイライトした箇所を箇条書きで抽出し、Notionに移�
 
 ## 使用方法
 
-1. Kindleの「メモとハイライト」ページを開きます。
-2. ブラウザの開発者ツールの"コンソール"を開きます。
+1. Kindleの[メモとハイライト](https://read.amazon.co.jp/notebook)ページを開きます。
+   1.1 ページの任意の場所を右クリック
+   1.2 検証をクリック
+   <img width="540" alt="スクリーンショット 2024-03-14 23 05 39" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/73e425de-83ca-43fd-836f-33b3cd6751e4">
+3. ブラウザの開発者ツールの"Consle"を開きます。
+    <img width="540" alt="スクリーンショット 2024-03-14 23 06 14" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/37b25a2c-547b-4f20-b7f2-262403924f99">
+
     - Firefox: [ウェブコンソール - 開発ツール | MDN](https://developer.mozilla.org/ja/docs/Tools/Web_Console)
     - Chrome: [Console overview - Chrome Developers](https://developer.chrome.com/docs/devtools/console/)
-3. 次のコードをコンソールに貼り付けて実行します：
+4. 次のコードをConsoleに貼り付けて実行します：
 
 ```javascript
 const { parsePage, toMarkdown } = await import('https://cdn.skypack.dev/kindle-highlight-to-markdown');
