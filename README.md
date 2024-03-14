@@ -1,8 +1,6 @@
 # Kindle-memo-to-notion
 Kindleでハイライトした箇所を箇条書きで抽出し、Notionに移行してメモをknowledgeとして整理しやすくする。
 
-# Kindle Highlights to Markdown with Enhancements
-
 [azuのkindle-highlight-to-markdown](https://github.com/azu/kindle-highlight-to-markdown)に基づき、KindleのハイライトとメモをMarkdownまたはJSON形式に変換するための改良版です。
 オリジナルのライブラリではページ番号も取得されますが、この改良版ではページ番号を取得せず、Markdown形式での箇条書き表示に特化しています。
 
