@@ -18,18 +18,22 @@ Kindleでハイライトした箇所を箇条書きで抽出し、Notionに移�
 1. Kindleの[メモとハイライト](https://read.amazon.co.jp/notebook)ページを開きます。
 2. ブラウザの開発者ツールの"Console"を開きます。
    2.1 ページの任意の場所を右クリック
+   
    <img width="540" alt="スクリーンショット 2024-03-14 23 33 12" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/9bc1b7f2-874c-4283-b8c3-f820664d0a26">
 
    2.2 検証をクリック
+   
    <img width="540" alt="スクリーンショット 2024-03-14 23 33 31" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/c27b9c1b-d672-466e-b505-62746776a391">
 
     - Firefox: [ウェブコンソール - 開発ツール | MDN](https://developer.mozilla.org/ja/docs/Tools/Web_Console)
     - Chrome: [Console overview - Chrome Developers](https://developer.chrome.com/docs/devtools/console/)
+
+   2.3 Consoleタブをクリック
    
    <img width="540" alt="スクリーンショット 2024-03-14 23 34 07" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/ebcee2a8-43ed-46a8-828d-e9ca95a92089">
 
-4. 次のコードをConsoleに貼り付けて実行します：
-   4.1 下記コードを実行
+3. 次のコードをConsoleに貼り付けて実行します：
+   3.1 下記コードを実行
    ```javascript
    const { parsePage, toMarkdown } = await import('https://cdn.skypack.dev/kindle-highlight-to-markdown');
    const result = parsePage(window); // JSONオブジェクト
@@ -50,11 +54,11 @@ Kindleでハイライトした箇所を箇条書きで抽出し、Notionに移�
      return acc;
    }, []).join('\n');
    ```
-   4.2 下記コードを実行
+   3.2 下記コードを実行
    ```javascript
    copy(bulletListMarkdown);
    ```
-5. Notionで所定のページで貼り付け
+4. Notionで所定のページで貼り付け
 
    <img width="540" alt="スクリーンショット 2024-03-14 23 36 15" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/c4688ca4-fafd-4db3-b0ac-922711b778b4">
 
