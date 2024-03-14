@@ -55,6 +55,7 @@ Kindleでハイライトした箇所を箇条書きで抽出し、Notionに移�
    copy(bulletListMarkdown);
    ```
 5. Notionで所定のページで貼り付け
+
    <img width="540" alt="スクリーンショット 2024-03-14 23 36 15" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/c4688ca4-fafd-4db3-b0ac-922711b778b4">
 
 
