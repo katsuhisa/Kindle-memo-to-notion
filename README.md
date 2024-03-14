@@ -33,6 +33,7 @@ Kindleでハイライトした箇所を箇条書きで抽出し、Notionに移�
    <img width="540" alt="スクリーンショット 2024-03-14 23 34 07" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/ebcee2a8-43ed-46a8-828d-e9ca95a92089">
 
 3. 次のコードをConsoleに貼り付けて実行します：
+
    3.1 下記コードを実行
    ```javascript
    const { parsePage, toMarkdown } = await import('https://cdn.skypack.dev/kindle-highlight-to-markdown');
@@ -58,7 +59,7 @@ Kindleでハイライトした箇所を箇条書きで抽出し、Notionに移�
    ```javascript
    copy(bulletListMarkdown);
    ```
-4. Notionで所定のページで貼り付け
+5. Notionで所定のページで貼り付け
 
    <img width="540" alt="スクリーンショット 2024-03-14 23 36 15" src="https://github.com/katsuhisa/Kindle-memo-to-notion/assets/86588377/c4688ca4-fafd-4db3-b0ac-922711b778b4">
 
